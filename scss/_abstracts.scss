@@ -1,0 +1,50 @@
+ /* fonts 
+ titles : Changa medium
+ text : Open sans
+ 
+ */
+ @import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&family=Open+Sans:wght@300&family=Raleway:wght@100;300;400&family=Roboto+Condensed:wght@300;700&display=swap');
+
+
+ /* Variables */
+ $primary-font:'Changa', sans-serif;
+ $secondary-font:"Open-sans", sans-serif;
+ $primary-color:#e51515;
+ $secondary-color:#14151a;
+ $date-color:#ffb320;
+ $comment-color:#08abbd;
+ $text-color: #9f9f9f;
+ $light-color:#fefefe;
+ 
+
+ /** Utilities **/
+.bg{
+    &-dark{
+        background-color: $secondary-color;
+    }
+    &-light{
+        background-color: $light-color;
+    }
+}
+
+.ml{
+    &-1{
+        margin-left: 1rem;
+    }
+    &-2{
+        margin-left: 2rem;
+    }
+    &-3{
+        margin-left: 3rem;
+    }
+}
+
+
+
+
+ /** Mixins **/
+ @mixin flex-display( $display, $align-items, $justify-content){
+    display: $display;
+    align-items: $align-items;
+    justify-content:  $justify-content;
+ }
