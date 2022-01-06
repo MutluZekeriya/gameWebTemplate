@@ -1,3 +1,5 @@
+
+/** Buttons */
 .btn{
     padding: 1rem 2rem;
     background-color: $light-color;
@@ -7,6 +9,10 @@
     border: none;
     font-size: 1.6rem;
     transition: all .5s;
+
+    @include media(medium){
+        padding: 0.8rem .8rem;
+    }
 
     &:hover{
         background-color: $primary-color;
@@ -21,5 +27,200 @@
             background-color: $light-color;
             color: $primary-color;
         }
+    }
+}
+
+/** Badges */
+
+.badge{
+    border: none;
+    padding: .3rem 2.4rem;
+    font-size: 1.6rem;
+    color: $light-color;
+    background-color: $primary-color;
+    margin: 5rem;
+    letter-spacing: .2rem;
+
+    &-tech{
+        background-color: $comment-color;
+    }
+    &-game{
+        background-color: $date-color;
+    }
+}
+
+
+/** Rating **/
+
+.rating{
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: 1rem;
+    left: 1rem;
+    border-radius: 50%;
+    color: $primary-color;
+    background-color: $light-color;
+    opacity: 0;
+    z-index: 100;
+    line-height: 3rem;
+    font-size: 1.4rem;
+    text-align: center;
+    transition: all .5s;
+}
+
+/** Reviews **/
+.review{
+    padding: 5rem;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin-left: 10rem;
+    border-left: 1px solid $primary-color;
+    border-bottom: 1px solid $primary-color;
+    transform: skew(-28deg);
+
+    @include media(large){
+        transform: skew(0deg);
+        border: none;
+        margin-left: 0;
+    }
+
+    & > *{
+        transform: skew(28deg);
+        @include media(large){
+            transform: skew(0deg);
+        }
+    } 
+    &-title{
+        margin-bottom: 2rem;
+    }
+
+    &-tags{
+        font-size: 1.2rem;
+        color: $light-color;
+        text-transform: uppercase;
+    }
+    &-text{
+        margin: 1rem 0;
+    }
+    &-user{
+        display: flex;
+        align-items: center;
+        
+        @include media(small){
+            flex-direction: column;
+        }
+
+        img{
+            width: 8rem;
+            height: auto;
+            margin-right: 3rem;
+            border-radius: 50%;
+        }
+
+        &-detail{
+            font-family: $primary-font;
+            margin-left: 1rem;
+
+            .review-user-name{
+                color: $primary-color;
+            }
+            .review-user-date{
+                color: $date-color;
+            }
+        }
+
+        &-platform{
+            margin-left: auto;
+
+            @include media(small){
+                margin-left: 0;
+            }
+
+            :not(:last-child){
+                color: $primary-color;
+            }
+            .fab{
+                margin:0 1rem;
+            }
+        }
+
+        &-rating{
+            margin-left: auto;
+
+            @include media(small){
+                margin-left: 0;
+            }
+
+            .checked{
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+/** cards **/ 
+.card{
+    height: 40rem;
+    perspective: 1000px;
+
+    @include media(large) {
+        height: 35rem;
+    }
+
+    @include media(medium) {
+        height: 30rem;
+    }
+
+    @include media(small) {
+        height: 25rem;
+    }
+
+    &-inner{
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+    }
+    .card-front, .card-back{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        transition: $general-transition;
+    }
+    .card-front{
+        background-color: $primary-color;
+        text-align: center;
+    }
+    .card-back{
+        background-color: $secondary-color;
+        transform: rotateY(180deg);
+
+        &-content{
+          text-align: center;
+          margin-top: 45%;
+
+          p{
+              font-size: 2rem;
+          }
+          a{
+              transition: $general-transition;
+              margin:1rem;
+
+              &:hover{
+                  color: $primary-color;
+              }
+          }
+        
+        }
+    }
+    &:hover .card-front {
+        transform: rotateY(180deg);
+    }
+    &:hover .card-back {
+        transform: none;
     }
 }
